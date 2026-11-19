@@ -11,6 +11,8 @@ body {
     background-repeat: repeat;
     font-family: Arial, sans-serif;
     color: white;
+    width: 85%;
+    text-align: center;
 }
 
 
@@ -28,24 +30,26 @@ body {
     top: 15px;
     left: 15px;
 
-    z-index: 100;
+    z-index: 101;
+    background: transparent;
 }
 
 
 .sidebar {
-    width: 10%;
+    width: 250px;
+    max-width: 80%;
     height: 100vh;
     background-color: #010247;
 
     position: fixed;
     top: 0;
-    left: -20%;
+    left: 0;
 
-    padding: 5%;
+   padding: 75px 20px 20px;
     box-sizing: content-box;
-
+ transform: translateX(-100%);
     transition: 0.4s;
-    z-index: 99;
+    z-index: 100;
 }
 
 .sidebar h2 {
@@ -76,10 +80,16 @@ body {
 }
 
 #menu:checked ~ .sidebar {
-    left: 0;
+  transform: translateX(0);
 }
 .main-content {
-    width: 100%;
+     width: 75%;
+    max-width: 650px;
+    margin: 50px auto;
+ background-color: #0d2345;
+    border-radius: 15px;
+    border: 1px solid #29446b;
+    padding: 25px;
 }
 
 
