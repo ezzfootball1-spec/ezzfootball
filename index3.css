@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -12,6 +13,8 @@ body {
     color: white;
 }
 
+/* Menu Button */
+
 #menu {
     display: none;
 }
@@ -25,24 +28,29 @@ body {
     top: 15px;
     left: 15px;
 
-    z-index: 100;
+    z-index: 101;
+    background: transparent;
 }
 
+/* Sidebar */
 
 .sidebar {
-    width: 10%;
+    width: 250px;
+    max-width: 80%;
     height: 100vh;
+
     background-color: #010247;
 
     position: fixed;
     top: 0;
-    left: -20%;
+    left: 0;
 
-    padding: 5%;
-    box-sizing: content-box;
+    padding: 75px 20px 20px;
 
-    transition: 0.4s;
-    z-index: 99;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+
+    z-index: 100;
 }
 
 .sidebar h2 {
@@ -71,31 +79,39 @@ body {
     background-color: #2563eb;
     border-radius: 8px;
 }
+
+/* Show Sidebar */
+
 #menu:checked ~ .sidebar {
-    left: 0;
+    transform: translateX(0);
 }
+
+/* Team Container */
 
 .team-container {
     width: 75%;
     max-width: 650px;
     margin: 50px auto;
     padding: 25px;
+
     background-color: #0d2345;
     border-radius: 15px;
     border: 1px solid #29446b;
 }
 
-
+/* Team Slider */
 
 .team-slider {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     margin-bottom: 30px;
 }
 
 .team {
     text-align: center;
+    min-width: 0;
 }
 
 .team img {
@@ -121,6 +137,7 @@ body {
     font-size: 20px;
     cursor: pointer;
     transition: 0.3s;
+    flex-shrink: 0;
 }
 
 .arrow:hover {
@@ -131,7 +148,7 @@ body {
 
 .statistics {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 25px;
 }
@@ -141,6 +158,7 @@ body {
     text-align: center;
     padding: 15px 5px;
     border-radius: 10px;
+    min-width: 0;
 }
 
 .stat h3 {
@@ -170,6 +188,7 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 10px 0;
 }
 
 .scorer-info img {
@@ -195,7 +214,7 @@ body {
     white-space: nowrap;
 }
 
-
+/* Mobile */
 
 @media screen and (max-width: 600px) {
 
@@ -203,21 +222,37 @@ body {
         padding: 15px 8px;
     }
 
+    .menu-btn {
+        font-size: 27px;
+        top: 10px;
+        left: 12px;
+    }
+
+    .sidebar {
+        width: 240px;
+        max-width: 80%;
+        padding: 65px 15px 15px;
+    }
+
+    .sidebar a {
+        font-size: 16px;
+    }
+
     .team-container {
         width: 100%;
         max-width: 100%;
-        margin: 20px auto;
+        margin: 55px auto 20px;
         padding: 15px 10px;
     }
 
     .team-slider {
         margin-bottom: 20px;
+        gap: 8px;
     }
 
     .team img {
         width: 85px;
         height: 85px;
-        object-fit: contain;
     }
 
     .team h2 {
@@ -228,7 +263,6 @@ body {
         width: 35px;
         height: 35px;
         font-size: 16px;
-        flex-shrink: 0;
     }
 
     .statistics {
@@ -238,7 +272,6 @@ body {
 
     .stat {
         padding: 10px 3px;
-        min-width: 0;
     }
 
     .stat h3 {
@@ -269,5 +302,26 @@ body {
     .scorer-info strong {
         font-size: 12px;
     }
+}
 
+/* Very Small Screens */
+
+@media screen and (max-width: 350px) {
+
+    .stat h3 {
+        font-size: 9px;
+    }
+
+    .stat p {
+        font-size: 18px;
+    }
+
+    .team img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .team h2 {
+        font-size: 16px;
+    }
 }
